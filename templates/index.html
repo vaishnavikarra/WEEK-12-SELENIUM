@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+  <script>
+    function validateForm() {
+      const username = document.forms["loginForm"]["username"].value.trim();
+      const password = document.forms["loginForm"]["pwd"].value.trim();
+
+      if (username === "") {
+        alert("Username cannot be empty.");
+        return false;
+      }
+
+      if (password === "") {
+        alert("Password cannot be empty.");
+        return false;
+      }
+
+      if (password.length < 6) {
+        alert("Password must be at least 6 characters long.");
+        return false;
+      }
+
+      return true; // allow form submission
+    }
+  </script>
+</head>
+<body>
+  <h2>Login</h2>
+  <form name="loginForm" action="/submit" method="post" onsubmit="return validateForm()">
+    <label>Username:</label>
+    <input type="text" name="username" placeholder="Enter username"><br><br>
+
+    <label>Password:</label>
+    <input type="password" name="pwd" placeholder="Enter password"><br><br>
+
+    <input type="submit" name="sb" value="Login">
+  </form>
+</body>
+</html>
