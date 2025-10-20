@@ -14,7 +14,8 @@ pipeline {
                     bat 'start /B python app.py'
 
                     // Wait a few seconds for the server to start
-                    bat 'ping 127.0.0.1 -n 5 > nul'
+                    bat 'C:\\Windows\\System32\\ping.exe 127.0.0.1 -n 5 >nul'
+
 
                     // Run tests using pytest
                     
