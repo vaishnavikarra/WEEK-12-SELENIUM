@@ -7,8 +7,8 @@ pipeline {
             steps {
                     echo "Running Selenium Tests using pytest"
 
-                    // Install Python dependencies
-                    bat 'pip install -r requirements.txt'
+
+                    bat 'python -m pip install -r requirements.txt'
 
                     //  Start Flask app in background
                     bat 'start /B python app.py'
@@ -18,7 +18,7 @@ pipeline {
 
                     // Run tests using pytest
                     
-                    bat 'pytest -v'
+                    bat 'python -m pytest -v'
             }
         }
 
@@ -30,15 +30,15 @@ pipeline {
         }
         stage('Docker Login') {
             steps {
-                  bat 'docker login -u vaishnavikarra -p Harekrishna8*'
+                 bat 'docker login -u vaishnavikarra869 -p Harekrishna8*'
                 }
             }
         stage('push Docker Image to Docker Hub') {
             steps {
                 echo "push Docker Image to Docker Hub"
-                bat "docker tag seleniumdemoapp:v3 vaishnavikarra/sample:seleniumtestimage"               
+                bat "docker tag seleniumdemoapp:v3 vaishnavikarra/"               
                     
-                bat "docker push vaishnavikarra/sample:seleniumtestimage"
+                bat "docker push vaishnavikarra/seleniumjavascript:seleniumtestimage"
                 
             }
         }
@@ -59,3 +59,5 @@ pipeline {
         }
     }
 }
+
+
