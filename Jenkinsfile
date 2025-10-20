@@ -38,7 +38,7 @@ pipeline {
                 echo "push Docker Image to Docker Hub"
                 bat "docker tag seleniumdemoapp:v3 vaishnavikarra/sample:seleniumtestimage"               
                     
-                bat "docker push vaishnavikarra//sample:seleniumtestimage"
+                bat "docker push vaishnavikarra/sample:seleniumtestimage"
                 
             }
         }
