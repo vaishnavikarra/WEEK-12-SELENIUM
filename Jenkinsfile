@@ -15,6 +15,9 @@ pipeline {
 
                     // Wait a few seconds for the server to start
                     bat 'C:\\Windows\\System32\\ping.exe 127.0.0.1 -n 5 >nul'
+                    bat 'python -m webdriver_manager.chrome'
+
+
 
 
                     // Run tests using pytest
