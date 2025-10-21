@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: seleniumdemoapp-service
+  name: seleniumtestdemoapp-service
 spec:
   selector:
-    app: seleniumdemoapp
+    app: seleniumtestdemoapp
   ports:
     - protocol: TCP
-      port: 5001
+      port: 5000
       targetPort: 5001
-      nodePort: 30088
+      nodePort: 30189
   type: NodePort
