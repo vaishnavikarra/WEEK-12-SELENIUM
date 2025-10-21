@@ -14,11 +14,7 @@ pipeline {
                     bat 'start /B python app.py'
 
                     // Wait a few seconds for the server to start
-                    bat 'C:\\Windows\\System32\\ping.exe 127.0.0.1 -n 5 >nul'
-                    bat 'python -m webdriver_manager.chrome'
-
-
-
+                    bat 'ping 127.0.0.1 -n 5 > nul'
 
                     // Run tests using pytest
                     
@@ -29,20 +25,20 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 echo "Build Docker Image"
-                bat "docker build -t seleniumdemoapp:v3 ."
+                bat "docker build -t seleniumdemoapp:v1 ."
             }
         }
         stage('Docker Login') {
             steps {
-                 bat 'docker login -u vaishnavikarra869 -p Harekrishna8*'
+                 bat 'docker login -u vaishnavikarra -p Harekrishna8*'
                 }
             }
         stage('push Docker Image to Docker Hub') {
             steps {
                 echo "push Docker Image to Docker Hub"
-                bat "docker tag seleniumdemoapp:v3 vaishnavikarra/sample:seleniumtestimage"               
+                bat "docker tag seleniumdemoapp:v1 vaishnavikarra/seleniumjavascript:seleniumtestimage"               
                     
-                bat "docker push vaishnavikarra/sample:seleniumtestimage"
+                bat "docker push vaishnavikarra/seleniumjavascript:seleniumtestimage"
                 
             }
         }
