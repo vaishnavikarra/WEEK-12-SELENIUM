@@ -1,21 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: seleniumdemoapp-deployment
+  name: seleniumtestdemoapp-deployment
 spec:
-  replicas: 5
+  replicas: 1
   selector:
     matchLabels:
-      app: seleniumdemoapp
+      app: seleniumtestdemoapp
   template:
     metadata:
       labels:
-        app: seleniumdemoapp
+        app: seleniumtestdemoapp
     spec:
       containers:
-      - name: seleniumdemoapp
-        image: vaishnavikarra/sample:seleniumtestimage
-
-        ports:
-
-        - containerPort: 5001
+        - name: seleniumtestdemoapp
+          image: vaishnavikarra869/seleniumjavascript:seleniumtestimage  
+          ports:
+            - containerPort: 5000
