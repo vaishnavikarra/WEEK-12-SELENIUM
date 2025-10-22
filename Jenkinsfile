@@ -4,22 +4,21 @@ pipeline {
     stages {
 
         stage('Run Selenium Tests with pytest') {
-            steps {
-                    echo "Running Selenium Tests using pytest"
+           steps {
+    echo "Running Selenium Tests using pytest"
+
+    // Install dependencies
+    bat '"C:\\Users\\Vaishnavi\\AppData\\Local\\Programs\\Python\\Python312\\python.exe" -m pip install -r requirements.txt'
+
+    // Start Flask app in background
+    bat 'start /B "" "C:\\Users\\Vaishnavi\\AppData\\Local\\Programs\\Python\\Python312\\python.exe" app.py'
+
+    // Wait for Flask server to start (~5 seconds)
 
 
-                    bat 'python -m pip install -r requirements.txt'
-
-                    //  Start Flask app in background
-                    bat 'start /B python app.py'
-
-                    // Wait a few seconds for the server to start
-             
-
-                    // Run tests using pytest
-                    
-                    bat 'python -m pytest -v'
-            }
+    // Run Selenium tests
+    bat '"C:\\Users\\Vaishnavi\\AppData\\Local\\Programs\\Python\\Python312\\python.exe" -m pytest -v'
+}
         }
 
         stage('Build Docker Image') {
