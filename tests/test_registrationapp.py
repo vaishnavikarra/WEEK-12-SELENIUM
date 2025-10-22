@@ -59,7 +59,7 @@ def test_short_password(setup_teardown):
     alert_text = get_alert_text(driver)
     assert alert_text == "Password must be at least 6 characters long."
 
-# ✅ Test 4: Valid input — should redirect to greeting.html
+# Test 4: Valid input — should redirect to greeting.html
 def test_valid_input(setup_teardown):
     driver = setup_teardown
     driver.get("http://127.0.0.1:5001/")
@@ -73,7 +73,7 @@ def test_valid_input(setup_teardown):
 
     # Verify URL
     current_url = driver.current_url
-    assert "/submit" in current_url, f"Expected redirect to greeting.html, but got: {current_url}"
+    assert "/result" in current_url, f"Expected redirect to greeting.html, but got: {current_url}"
 
     # Verify greeting message
     body_text = driver.find_element(By.TAG_NAME, "body").text
