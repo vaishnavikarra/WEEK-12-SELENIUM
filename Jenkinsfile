@@ -25,7 +25,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 echo "Build Docker Image"
-                bat "docker build -t seleniumdemoapp:v1 ."
+                bat "docker build -t selenium:v1 ."
             }
         }
         stage('Docker Login') {
@@ -36,9 +36,9 @@ pipeline {
         stage('push Docker Image to Docker Hub') {
             steps {
                 echo "push Docker Image to Docker Hub"
-                bat "docker tag seleniumdemoapp:v1 vaishnavikarra/seleniumjavascript:seleniumtestimage"               
+                bat "docker tag selenium:v1 vaishnavikarra/selenium:v1"               
                     
-                bat "docker push vaishnavikarra/seleniumjavascript:seleniumtestimage"
+                bat "docker push vaishnavikarra/selenium:v1"
                 
             }
         }
