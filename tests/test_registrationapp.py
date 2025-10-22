@@ -7,6 +7,11 @@ from webdriver_manager.chrome import ChromeDriverManager
 import time
 from selenium.webdriver.chrome.options import Options
 
+options = Options()
+options.binary_location = r"C:\Program Files\Google\Chrome\Application"
+options.add_argument("--headless=new") 
+
+
 # Fixture for setting up and tearing down the driver
 @pytest.fixture
 def setup_teardown():
