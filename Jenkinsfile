@@ -18,7 +18,7 @@ pipeline {
 
                     // Run tests using pytest
                     
-                    bat ' pytest -v'
+                    bat 'python -m pytest -v'
             }
         }
 
