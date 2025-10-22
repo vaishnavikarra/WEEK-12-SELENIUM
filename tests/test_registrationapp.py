@@ -27,12 +27,6 @@ def setup_teardown():
     # Quit driver after test
     driver.quit()
 
- 
-   
-
-    yield driver
-    driver.quit()
-
 # Helper to get alert text safely
 def get_alert_text(driver):
     alert = Alert(driver)
